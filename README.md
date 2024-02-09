@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This repository contains my (Steve Zeeuwe) process and final solution of an assignment send by Sendcloud for the role of (senior) Front-End Developer. The goal of this assignment is to provide insight into my way of working and technical skill level.
+This repository contains my (Steve Zeeuwe) process and solution of an assignment sent by Sendcloud for the role of (senior) Front-End Developer. The goal of this assignment is to provide insight into my way of working and technical skill level.
 
-For that reason I decided to create an additional document; the so called [process document](PROCESS.md) which explains my process.
+For that reason I decided to create an additional document; the so-called [process document](PROCESS.md) which explains my process.
 
-The rest of this README is in service of the assignment; an explanation, how to run the project and so on.
+The rest of this README is in service of the assignment; an explanation, how to run the project, and so on.
 
 ## The assignment
 
