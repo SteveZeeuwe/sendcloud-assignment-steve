@@ -1,0 +1,54 @@
+
+html {
+    font-size: 62.5%; /* Makes 1rem = 10px, if default font-size was 16px. */
+}
+
+body {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+ul {
+    padding: 0;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main-menu {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.main-menu li {
+    list-style: none;
+}
+
+.main-menu li a {
+    color: white;
+}
+
+.logo-wrapper {
+    background: black;
+}
+
+.hero {
+    height: 800px;
+    position: relative;
+
+    background-image: url('./img/hero-full-width.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
