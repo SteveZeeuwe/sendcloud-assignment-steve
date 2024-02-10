@@ -23,3 +23,13 @@ The reason why I decided to write this process document is also twofold;
 
 1. This process document is easier to read than opening a bunch of commits.
 2. This document allows me to also write about what I did _not_ commit; this can be just as important if you want to get a feel of my way of working.
+
+Let's get started.
+
+## Step three; blocking the design
+
+When I get a design, I usually make a mental map of the rough html layout. If the design is complex I grab a piece of paper and actually 'block out' the various elements of the design. To visualize this, I opened paint and made [this](/designs/landing-example-boxed.jpg) for you guys.
+
+-   This serves as a reference to get started, things may change during development.
+-   I decided on an `<article>` for the calculator as I see the calculator as something that can be cut and pasted somewhere else as 'it makes sense on its own'.
+-   I know I didn't block out everything; I think this gets the point across and the most important bits have been covered.
