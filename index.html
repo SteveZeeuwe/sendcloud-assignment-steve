@@ -64,8 +64,8 @@
                         KMH
                     </span>
                     <div class="up-down">
-                        <button onclick="speedUp()">Up</button>
-                        <button onclick="speedDown()">down</button>
+                        <button onclick="numberInputStepUp('speed')">Up</button>
+                        <button onclick="numberInputStepdown('speed')">down</button>
                     </div>
                 </div>
 
@@ -76,8 +76,8 @@
                         celcius
                     </span>
                     <div class="up-down">
-                        <button onclick="temperatureUp()">Up</button>
-                        <button onclick="temperatureDown()">down</button>
+                        <button onclick="numberInputStepUp('temperature')">Up</button>
+                        <button onclick="numberInputStepdown('temperature')">down</button>
                     </div>
                 </div>
 
@@ -145,23 +145,9 @@
         </div>
     </footer>
 
+    <script src="range-calculator.js"></script>
+
     <script>
-        function speedUp() {
-            document.getElementById("speed").stepUp(1);
-        }
-        
-        function speedDown() {
-            document.getElementById("speed").stepDown(1);
-        }
-
-        function temperatureUp() {
-            document.getElementById("temperature").stepUp(1);
-        }
-        
-        function temperatureDown() {
-            document.getElementById("temperature").stepDown(1);
-        }
-
         function subscribeToMail(event) {
             event.preventDefault();
             const email = document.getElementById('email').value;
