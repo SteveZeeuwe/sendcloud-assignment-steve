@@ -1,5 +1,6 @@
 :root {
     --main-accent-color: #008DFF;
+    --black: #121212;
 }
 
 html {
@@ -42,8 +43,13 @@ section, header {
     color: white;
 }
 
+
 .logo-wrapper {
-    background: black;
+    background-color: var(--black);
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #hero {
