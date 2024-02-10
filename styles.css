@@ -1,3 +1,6 @@
+:root {
+    --main-accent-color: #008DFF;
+}
 
 html {
     font-size: 62.5%; /* Makes 1rem = 10px, if default font-size was 16px. */
@@ -19,7 +22,7 @@ section {
     text-align: center;
 }
 
-header {
+section, header {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -43,7 +46,7 @@ header {
     background: black;
 }
 
-.hero {
+#hero {
     height: 800px;
     position: relative;
 
@@ -51,4 +54,10 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.ultimate-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 80px;
 }

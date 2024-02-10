@@ -4,33 +4,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tesla model S</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="range-calculator.css">
 </head>
 <body>
+    <section id="hero">
+        <header>
+            <div class="logo-wrapper">
+                <img src="img/logo.svg" alt="">
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="/">Model S</a></li>
+                    <li><a href="/modelx">Model X</a></li>
+                    <li><a href="/model3">Model 3</a></li>
+                    <li><a href="/roadster">Roadster</a></li>
+                    <li><a href="/energy">Energy</a></li>
+                </ul>
+            </nav>
+        </header>
+    </section>
+    
     <div class="ultimate-wrapper">
-        <section class="hero">
-            <header>
-                <div class="logo-wrapper">
-                    <img src="img/logo.svg" alt="">
-                </div>
-                <nav>
-                    <ul class="main-menu">
-                        <li><a href="/">Model S</a></li>
-                        <li><a href="/modelx">Model X</a></li>
-                        <li><a href="/model3">Model 3</a></li>
-                        <li><a href="/roadster">Roadster</a></li>
-                        <li><a href="/energy">Energy</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </section>
-
-        <section>
+        <section id="introduction">
             <h1>Far far away, behind the word mountains…</h1>
 
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 
             <button>Go to calculator</button>
         </section>
+
+        <article id="range-calculator">
+            <h2>Range per charge</h2>
+
+            <div class="tesla-s-wrapper">
+                <img src="img/range-calculator/car-base.png" alt="White Tesla S side profile" class="base">
+            </div>
+
+            <div class="ranges">
+                <div class="range-wrapper">
+                    <img src="img/range-calculator/100d-logo.png" alt="Type 100D logo">
+                    <div class="range">
+                        <span class="value">459</span>
+                        <span class="unit">km</span>
+                    </div>
+                </div>
+                <div class="range-wrapper">
+                    <img src="img/range-calculator/p100d-logo.png" alt="Type P100D logo">
+                    <div class="range">
+                        <span class="value">434</span>
+                        <span class="unit">km</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div id="speed-control" class="control">
+                    <input type="number" id="speed" disabled value="70" max="140" min="70" step="10" value="">
+                    <span class="unit">
+                        KMH
+                    </span>
+                    <div class="up-down">
+                        <button onclick="speedUp()">Up</button>
+                        <button onclick="speedDown()">down</button>
+                    </div>
+                </div>
+
+                <div id="temperature-control" class="control">
+                    <input type="number" id="temperature" disabled value="70" max="140" min="70" step="10" value="">
+
+                    <span class="unit">
+                        celcius
+                    </span>
+                    <div class="up-down">
+                        <button onclick="temperatureUp()">Up</button>
+                        <button onclick="temperatureDown()">down</button>
+                    </div>
+                </div>
+
+                <div id="ac-control" class="control">
+                    <input type="checkbox" id="ac-toggle" hidden />
+                    <label for="ac-toggle" class="ac-toggle">
+                        <img src="img/range-calculator/icon-fan-gray.svg" class="ac-off" alt="AC off icon">
+                        <img src="img/range-calculator/icon-fan-white.svg" class="ac-on" alt="AC on icon">
+                    </label>
+                </div>
+
+                <div id="wheel-size-control" class="control">
+                    <input type="radio" id="nineteen" name="wheelsize" value="19" class="custom-radio-button-input" hidden checked />
+                    <label for="nineteen" class="custom-radio-button-label">19"</label>
+
+                    <input type="radio" id="twentyone" name="wheelsize" value="21" class="custom-radio-button-input" hidden />
+                    <label for="twentyone" class="custom-radio-button-label">21"</label>
+                </div>
+            </div>
+
+            <p class="footnote">The actual amount of range that you experience will vary based on your particular use conditions. Your vehicle range is also dependent on other conditions, such as vehicle configuration, battery age and condition, driving style and operating, environmental and climate conditions. See how some of these particular use conditions may affect your range in our simulation model.</p>
+        </article>
     </div>
+
+    <script>
+        function speedUp() {
+            document.getElementById("speed").stepUp(1);
+        }
+        
+        function speedDown() {
+            document.getElementById("speed").stepDown(1);
+        }
+
+        function temperatureUp() {
+            document.getElementById("temperature").stepUp(1);
+        }
+        
+        function temperatureDown() {
+            document.getElementById("temperature").stepDown(1);
+        }
+    </script>
 </body>
 </html>
