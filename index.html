@@ -23,8 +23,8 @@
             </nav>
         </header>
     </section>
-    
-    <div class="ultimate-wrapper">
+
+    <div class="content-wrapper">
         <section id="introduction">
             <h1>Far far away, behind the word mountains…</h1>
 
@@ -102,6 +102,49 @@
         </article>
     </div>
 
+    <footer>
+        <div id="footer-wrapper" class="content-wrapper">
+            <ul>
+                <li>Contact us</li>
+                <li>+44 345 678 903</li>
+                <li>adobexd@mail.com</li>
+                <li>Find a Store</li>
+            </ul>
+
+            <ul>
+                <li>Customer service</li>
+                <li>Contact Us</li>
+                <li>Ordering & Payment</li>
+                <li>Shipping</li>
+                <li>Returns</li>
+                <li>FAQ</li>
+            </ul>
+
+            <ul>
+                <li>Information</li>
+                <li>About this example</li>
+                <li>Work With US</li>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+                <li>Press Enquiries</li>
+            </ul>
+            
+            <div class="subscription-cta">
+                <ul>
+                    <li>Subscribe to us via Email</li>
+                    <li class="hightlight">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</li>
+                </ul>
+
+                <div class="subscribe">
+                    <form id="emailForm" onsubmit="subscribeToMail(event)">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         function speedUp() {
             document.getElementById("speed").stepUp(1);
@@ -117,6 +160,12 @@
         
         function temperatureDown() {
             document.getElementById("temperature").stepDown(1);
+        }
+
+        function subscribeToMail(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            alert(`It's fake sir, so we will not be adding ${email} to our mailing list, we are so sorry.`);
         }
     </script>
 </body>
