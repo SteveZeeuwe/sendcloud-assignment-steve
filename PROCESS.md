@@ -65,7 +65,7 @@ As this part is the most technically challenging, I will keep track of my overal
 
 -   I have four inputs. If any of the input's value is changed, I need to determine a range for all model-s types (100D & P100D) based on data in a JSON and then update the DOM accordingly.
     -   I will first make sure I have access to the data. Since I have not read any limitation on how I get access to the data, I assume I can simply hard-code it as a JSON object within my application. This makes the whole setup easier; I will not need to run a local webserver to be able to fetch the files.
-    -   I do not know whether I am allowed to alter the structure of the data. I will assume I can, but include a flag in the code which disables data transformation and make sure the range-calculator still works.
+    -   I do not know whether I am allowed to alter the structure of the data.
     -   Ever since I saw the project I had this funky idea of transforming the data into an object where I can simply get the range by accessing an object like so: `data_100d[temperature][wheelsize][ac][kmh]`. I think this results in a smaller JSON object and it should be really fast.
-    -   In case data transformation is disabled I will simply run a .find() on the data array and try to find a match.
+    -   Initially I will simply implement a .find() on the data array and try to find a match. If later I have time left I will also try the funky way by transforming the data. I am curious how difficult it is and what the performance difference will be.
     -   I want to set everything up in such a way that it is easy to add or remove a model, let's see if I can do that within a reasonable amount of time.
