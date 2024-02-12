@@ -41,14 +41,14 @@
             </div>
 
             <div class="ranges">
-                <div class="range-wrapper">
+                <div class="range-wrapper" data-js-range-calculator-car-type="100D">
                     <img src="img/range-calculator/100d-logo.png" alt="Type 100D logo">
                     <div class="range">
                         <span class="value">459</span>
                         <span class="unit">km</span>
                     </div>
                 </div>
-                <div class="range-wrapper">
+                <div class="range-wrapper" data-js-range-calculator-car-type="P100D">
                     <img src="img/range-calculator/p100d-logo.png" alt="Type P100D logo">
                     <div class="range">
                         <span class="value">434</span>
@@ -59,7 +59,7 @@
 
             <div class="controls">
                 <div id="speed-control" class="control">
-                    <input type="number" id="speed" disabled value="70" max="140" min="70" step="10" value="">
+                    <input type="number" id="speed" disabled value="70" max="140" min="70" step="10">
                     <span class="unit">
                         KMH
                     </span>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div id="temperature-control" class="control">
-                    <input type="number" id="temperature" disabled value="70" max="140" min="70" step="10" value="">
+                    <input type="number" id="temperature" disabled value="10" max="40" min="-10" step="10">
 
                     <span class="unit">
                         celcius
@@ -82,14 +82,14 @@
                 </div>
 
                 <div id="ac-control" class="control">
-                    <input type="checkbox" id="ac-toggle" hidden />
-                    <label for="ac-toggle" class="ac-toggle">
+                    <input type="checkbox" id="ac" hidden />
+                    <label for="ac" class="ac">
                         <img src="img/range-calculator/icon-fan-gray.svg" class="ac-off" alt="AC off icon">
                         <img src="img/range-calculator/icon-fan-white.svg" class="ac-on" alt="AC on icon">
                     </label>
                 </div>
 
-                <div id="wheel-size-control" class="control">
+                <div id="wheelsize" class="control" data-js-range-calculator-input-type="radio">
                     <input type="radio" id="nineteen" name="wheelsize" value="19" class="custom-radio-button-input" hidden checked />
                     <label for="nineteen" class="custom-radio-button-label">19"</label>
 

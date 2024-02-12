@@ -68,23 +68,23 @@ input {
 }
 
 /* AC toggler */
-#ac-toggle:checked + .ac-toggle {
+#ac:checked + .ac {
     background: var(--main-accent-color, #008DFF);
 }
 
-#ac-toggle:checked + .ac-toggle .ac-on {
+#ac:checked + .ac .ac-on {
     display: block;
 }
 
-#ac-toggle:checked + .ac-toggle .ac-off {
+#ac:checked + .ac .ac-off {
     display: none;
 }
 
-#ac-toggle + .ac-toggle .ac-on {
+#ac + .ac .ac-on {
     display: none;
 }
 
-#ac-toggle + .ac-toggle .ac-off {
+#ac + .ac .ac-off {
     display: block;
 }
 
