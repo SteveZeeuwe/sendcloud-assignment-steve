@@ -793,7 +793,7 @@ function setup(inputs, types) {
 
 function setInputRefs(inputs) {
     inputs.forEach(input => {
-        let domRef = document.getElementById(input.id);
+        const domRef = document.getElementById(input.id);
 
         switch(input.type) {
             case 'number':
