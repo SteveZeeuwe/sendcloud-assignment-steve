@@ -52,7 +52,7 @@ The first thing code-wise is usually to do some initial setup;
 
 Add this point I also realized I can make a developers version of the XD file, which is hugely beneficial for inspecting purposes. It creates a publicly available url, you can have a look [here](https://xd.adobe.com/view/2150d485-b5e6-4a45-8729-6c0636678961-7403/specs/). Small things like this make me so happy when developing!
 
-## Step five; the range-calculator
+## Step five; the range-calculator - naive implementation
 
 After step 4 I now have a rough version of the page and some functionality, [see screenshot](/progress%20images/step-4-completed.png). This means that now I will focus on the following two things by working iteratively;
 
@@ -76,3 +76,13 @@ The first iteration is done and I'm happy with how the reactivity works as it us
 I was hoping this would internally trigger an event, for example `change`, but sadly it doesn't. This means I had to manually create an event and fire it. I chose to use the `change` event as this event is used for the other types of input.
 
 At this point I'm not that happy with the code structure yet for various reasons. I will improve that in the next iteration by turning the range-calculator into a class. This has the benefits of encapsulation and scope management; grouping related variables and functions together improves organization and readablity, and on top of that reduces the polution of the global scope. I swear I'm writing everything myself and not use ChatGPT for it :').
+
+## Step six; the range-calculator - class-based
+
+## Final notes
+
+-   Normally I use GIT differently. I make heavy use of feature branches and only merge into main if the code has been tested and approved. This allows me to revert to any commit on main and be sure I will have a working application. As in this project GIT's main purpose was just to show chronological changes I opted for a more speedy workflow where I also push flawed versions of the project.
+
+## Learnings
+
+-

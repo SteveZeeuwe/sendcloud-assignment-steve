@@ -1,9 +1,174 @@
-const inputDomRefs = {};
-const carTypeValueDomRefs = {};
-const inputValues = {};
-const teslaSTypes = ['100D', 'P100D'];
+class RangeCalculator {
+  constructor(inputs, types, dataSets) {
+    this.inputDomRefs = this.setInputRefs(inputs);
+    this.inputValues = this.constructInputValueObject(inputs);
+    this.carTypeRangeValueEls = this.setCarTypeRangeValueEls(types);
+    this.dataSets = dataSets;
+    this.setEventListeners(inputs, this.inputDomRefs, this.inputValues, this.carTypeRangeValueEls, this.dataSets);
 
-const dataSets = {
+    // Set initial values
+    this.updateBatteryRanges(this.inputValues, this.carTypeRangeValueEls, this.dataSets);
+  }
+
+  setInputRefs(inputs) {
+      return inputs.reduce((acc, input) => {
+          const targetEl = document.getElementById(input.id);
+
+          if(targetEl === null) {
+              return acc;
+          }
+          
+          switch(input.type) {
+              case 'number':
+                  if(targetEl.nodeName === 'INPUT' && targetEl.type === 'number') {
+                    acc[input.id] = targetEl;
+                  }
+                  break;
+              case 'checkbox':
+                  if(targetEl.nodeName === 'INPUT' && targetEl.type === 'checkbox') {
+                    acc[input.id] = targetEl;
+                  }
+                  break;
+              case 'radio':
+                  if(targetEl.dataset.jsRangeCalculatorInputType === 'radio') {
+                    acc[input.id] = targetEl.querySelectorAll('input[type=radio]');
+                  }
+                  break;                
+              default:
+                  console.warn(`Tried to handle input ${input.id} with type ${input.type} but was unable to`);
+          }
+      
+          return acc;
+      }, {});
+  }
+
+  setCarTypeRangeValueEls(carTypes) {
+      return carTypes.reduce((acc, carType) => {
+          acc[carType] = document.querySelector(`[data-js-range-calculator-car-type="${carType}"] .value`);
+
+          return acc;
+      }, {});
+  }
+
+  constructInputValueObject(inputs) {
+      return inputs.reduce((acc, input) => {
+          acc[input.id] = input.initialValue;
+
+          return acc;
+      }, {});
+  }
+
+  setEventListeners(inputs, inputDomRefs, inputValues, carTypeRangeValueEls, dataSets) {
+    inputs.forEach(input => {
+        switch(input.type) {
+            case 'number':
+                inputDomRefs[input.id].addEventListener('change', (event) => {
+                    inputValues[input.id] = Number(event.target.value);
+                    this.updateBatteryRanges(inputValues, carTypeRangeValueEls, dataSets);
+                });
+
+                break;
+            case 'checkbox':
+                inputDomRefs[input.id].addEventListener('change', (event) => {
+                    inputValues[input.id] = event.target.checked
+                    this.updateBatteryRanges(inputValues, carTypeRangeValueEls, dataSets);
+                });
+
+                break;
+            case 'radio':
+                inputDomRefs[input.id].forEach((domRef) => {
+                    domRef.addEventListener('change', (event) => {
+                        inputValues[input.id] = event.target.value;
+                        this.updateBatteryRanges(inputValues, carTypeRangeValueEls, dataSets);
+                    });
+                });
+
+                break;                
+            default:
+                console.warn(`Tried to get value of input ${input.id} with type ${input.type}, but was unable to`);
+        }
+    });
+  }
+
+  updateBatteryRanges(inputValues, carTypeRangeValueEls, dataSets) {
+      Object.keys(carTypeRangeValueEls).forEach((carTypeId) => {
+          carTypeRangeValueEls[carTypeId].innerText = this.retrieveBatteryRange(inputValues, dataSets[carTypeId]);
+      });
+  }
+
+  retrieveBatteryRange(inputValues, batteryRangeObjects) {
+      //todo: figure out whether the == comparison can be more strict.
+      const batteryRangeObject = batteryRangeObjects.find(dataset => 
+          dataset.temp === inputValues.temperature && 
+          dataset.wheelsize == inputValues.wheelsize &&
+          ((inputValues.ac && dataset.ac === "on") || (!inputValues.ac && dataset.ac === "off"))
+      );
+
+      if (!batteryRangeObject || !batteryRangeObject.hwy) {
+          console.error('No matching hwy found');
+          return null;
+      }
+
+      const speedEntry = batteryRangeObject.hwy.find(entry => entry.kmh === inputValues.speed);
+      if (!speedEntry) {
+          console.error('No matching speed entry found');
+          return null;
+      }
+
+      return speedEntry.kilometers;
+  }
+
+  numberInputStepUp(input) {
+      if(this.inputDomRefs[input]) {
+          this.inputDomRefs[input].stepUp(1);
+          this.inputDomRefs[input].dispatchEvent(new Event("change"));
+
+          return;
+      }
+
+      console.warn(`${input} could not be found`);
+  }
+
+  numberInputStepdown(input) {
+      if(this.inputDomRefs[input]) {
+          this.inputDomRefs[input].stepDown(1);
+          this.inputDomRefs[input].dispatchEvent(new Event("change"));
+
+          return;
+      }
+
+      console.warn(`${input} could not be found`);
+  }
+}
+
+const rangeCalculator = new RangeCalculator(
+  [
+    {
+        id: "speed",
+        type: "number",
+        initialValue: 70,
+    },
+    {
+        id: "temperature",
+        type: "number",
+        initialValue: 40,
+    },
+    {
+        id: "ac",
+        type: "checkbox",
+        initialValue: false,
+    },
+    {
+        id: "wheelsize",
+        type: "radio",
+        initialValue: 19,
+    },
+  ],
+  [
+      '100D',
+      'P100D',
+  ],
+  {
     "100D": [
         {
           "temp": -10,
@@ -750,168 +915,5 @@ const dataSets = {
           ]
         }
       ]
-      
-}
-
-setup(
-    [
-        {
-            id: "speed",
-            type: "number",
-            initialValue: 70,
-        },
-        {
-            id: "temperature",
-            type: "number",
-            initialValue: 40,
-        },
-        {
-            id: "ac",
-            type: "checkbox",
-            initialValue: false,
-        },
-        {
-            id: "wheelsize",
-            type: "radio",
-            initialValue: 19,
-        },
-    ],
-    [
-        '100D',
-        'P100D',
-    ]
+  }
 );
-
-function setup(inputs, types) {
-    setInputRefs(inputs);
-    setCarTypeValueRefs(types);
-    constructInputValueObject(inputs);
-    setEventListeners(inputs);
-
-    updateBatteryRanges(inputValues);
-}
-
-function setInputRefs(inputs) {
-    inputs.forEach(input => {
-        const domRef = document.getElementById(input.id);
-
-        switch(input.type) {
-            case 'number':
-                if(domRef && domRef.type === 'number') {
-                    inputDomRefs[input.id] = document.getElementById(input.id);
-                }
-
-                break;
-            case 'checkbox':
-                if(domRef && domRef.type === 'checkbox') {
-                    inputDomRefs[input.id] = document.getElementById(input.id);
-                }
-
-                break;
-            case 'radio':
-                if(domRef && domRef.dataset.jsRangeCalculatorInputType === 'radio') {
-                    inputDomRefs[input.id] = domRef.querySelectorAll('input[type=radio]');
-                }
-                
-                break;                
-            default:
-                console.warn(`Tried to handle input ${input.id} with type ${input.type} but was unable to`);
-        }
-    });
-}
-
-function setCarTypeValueRefs(carTypes) {
-    carTypes.forEach((carType) => {
-        carTypeValueDomRefs[carType] = document.querySelector(`[data-js-range-calculator-car-type="${carType}"] .value`);
-    });
-}
-
-function constructInputValueObject(inputs) {
-    inputs.forEach((input) => {
-        inputValues[input.id] = input.initialValue;
-    });
-}
-
-function setEventListeners(inputs) {
-    inputs.forEach(input => {
-        switch(input.type) {
-            case 'number':
-                inputDomRefs[input.id].addEventListener('change', (event) => {
-                    inputValues[input.id] = Number(event.target.value);
-                    updateBatteryRanges(inputValues);
-                });
-
-                break;
-            case 'checkbox':
-                inputDomRefs[input.id].addEventListener('change', (event) => {
-                    inputValues[input.id] = event.target.checked
-                    updateBatteryRanges(inputValues);
-                });
-
-                break;
-            case 'radio':
-                inputDomRefs[input.id].forEach((domRef) => {
-                    domRef.addEventListener('change', (event) => {
-                        inputValues[input.id] = event.target.value;
-                        updateBatteryRanges(inputValues);
-                    });
-                });
-
-                break;                
-            default:
-                console.warn(`Tried to get value of input ${input.id} with type ${input.type} but was unable to`);
-        }
-    });
-}
-
-function updateBatteryRanges(inputValues) {
-    Object.keys(carTypeValueDomRefs).forEach((carTypeId, index) => {
-        carTypeValueDomRefs[carTypeId].innerText = retrieveBatteryRange(inputValues, carTypeId);
-    });
-}
-
-function retrieveBatteryRange(inputValues, type) {
-    const batteryRangeObjects = dataSets[type];
-
-    //todo: figure out whether the == comparison can be more strict.
-    const batteryRangeObject = batteryRangeObjects.find(dataset => 
-        dataset.temp === inputValues.temperature && 
-        dataset.wheelsize == inputValues.wheelsize &&
-        ((inputValues.ac && dataset.ac === "on") || (!inputValues.ac && dataset.ac === "off"))
-    );
-
-    if (!batteryRangeObject || !batteryRangeObject.hwy) {
-        console.error('No matching hwy found');
-        return null;
-    }
-
-    const speedEntry = batteryRangeObject.hwy.find(entry => entry.kmh === inputValues.speed);
-    if (!speedEntry) {
-        console.error('No matching speed entry found');
-        return null;
-    }
-
-    return speedEntry.kilometers;
-}
-
-function numberInputStepUp(input) {
-    if(inputDomRefs[input]) {
-        inputDomRefs[input].stepUp(1);
-        inputDomRefs[input].dispatchEvent(new Event("change"));
-
-        return;
-    }
-
-    console.warn(`${input} could not be found`);
-}
-
-function numberInputStepdown(input) {
-    if(inputDomRefs[input]) {
-        inputDomRefs[input].stepDown(1);
-        inputDomRefs[input].dispatchEvent(new Event("change"));
-
-        return;
-    }
-
-    console.warn(`${input} could not be found`);
-}
