@@ -26,15 +26,15 @@ The reason why I decided to write this process document is also twofold;
 
 Let's get started.
 
-## Step three; blocking the design
+## Step three; blocking the design (~5 minutes)
 
-When I get a design, I usually make a mental map of the rough html layout. If the design is complex I grab a piece of paper and actually 'block out' the various elements of the design. To visualize this, I opened paint and made [this](/designs/landing-example-boxed.jpg) for you guys.
+When I get a design, I usually make a mental map of the rough html layout. If the design is complex I grab a piece of paper and actually 'block out' the various elements of the design. To visualize this, I opened paint and made [this](</workfiles/progress images/landing-example-boxed.jpg>) for you guys.
 
 -   This serves as a reference to get started, things may change during development.
 -   I decided on an `<article>` for the calculator as I see the calculator as something that can be cut and pasted somewhere else as 'it makes sense on its own'.
 -   I know I didn't block out everything; I think this gets the point across and the most important bits have been covered.
 
-## Step four; initial setup
+## Step four; initial setup (~1-1.5 hours)
 
 The first thing code-wise is usually to do some initial setup;
 
@@ -52,9 +52,9 @@ The first thing code-wise is usually to do some initial setup;
 
 Add this point I also realized I can make a developers version of the XD file, which is hugely beneficial for inspecting purposes. It creates a publicly available url, you can have a look [here](https://xd.adobe.com/view/2150d485-b5e6-4a45-8729-6c0636678961-7403/specs/). Small things like this make me so happy when developing!
 
-## Step five; the range-calculator - naive implementation
+## Step five; the range-calculator - naive implementation (~1-1.5 hours)
 
-After step 4 I now have a rough version of the page and some functionality, [see screenshot](/progress%20images/step-4-completed.png). This means that now I will focus on the following two things by working iteratively;
+After step 4 I now have a rough version of the page and some functionality, [see screenshot](/workfiles/progress%20images/step-4-completed.png). This means that now I will focus on the following two things by working iteratively;
 
 -   Finalizing the design including responsiveness and animations
 -   Finalizing the range-calculator functionality.
@@ -77,13 +77,21 @@ I was hoping this would internally trigger an event, for example `change`, but s
 
 At this point I'm not that happy with the code structure yet for various reasons. I will improve that in the next iteration by turning the range-calculator into a class. This has the benefits of encapsulation and scope management; grouping related variables and functions together improves organization and readablity, and on top of that reduces the polution of the global scope. I swear I'm writing everything myself and not use ChatGPT for it :').
 
-## Step six; the range-calculator - class-based
+## Step six; the range-calculator - class-based (~0.5 hours)
 
-While turning the range-calculator into a class I also tried going for pure functions. This usually makes it easier for me to see the flow of my code and gives me some handholds on how to structure the code. I did not go for a 100% implementation time-wise, I might look into it more later.
+While turning the range-calculator into a class I also decided to go for pure functions. This usually makes it easier for me to see the flow of the code and gives me some handholds on how to structure the code. I did not go for a 100% implementation time-wise, I might look into it more later.
 
 I also improved some of the checks to make the code more defensive, altho it's quite difficult to know how far to go with this in a hypothetical project.
 
 At this point I'm relatively happy with how the code is structured and how it performs. I tried to set it up quite dynamically; in such a way that it's easy to add/change inputs, car types and datasets. Of course the code is still very much coupled to a specific HTML implementation. I did consider building the `.ranges` and `.controls` with javascript. That would have the benefit of not needing to update the html manually as the constructor parameters change, but thought that went a bit far for this assignment.
+
+## Step seven; implement XD design.
+
+Next up I wanted to implement the XD design. First the desktop version and then touch up for other screensizes with media queries.
+
+I quickly felt the need for more structured and readable css, so I opted for implementing SCSS. During this I noticed that the filesystem was becoming a bit of a mess so decided to do a small cleanup. The assets folder for project assets, workfiles folder for everything related to source materials and process stuff. I did decide to keep `PROCESS.MD` in the root to make the chance anyone misses it as small as possible.
+
+The filesystem cleanup and some npm fiddling later I had a nice clean folder structure and scss up and running.
 
 ## Final notes
 

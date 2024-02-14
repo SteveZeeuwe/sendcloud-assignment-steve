@@ -1,0 +1,15 @@
+{
+  "name": "sendcloud-assignment-steve",
+  "version": "1.0.0",
+  "description": "This repository contains my (Steve Zeeuwe) process and solution of an assignment sent by Sendcloud for the role of (senior) Front-End Developer. The goal of this assignment is to provide insight into my way of working and technical skill level.",
+  "main": "range-calculator.js",
+  "scripts": {
+    "sass-dev": "sass --watch --update --style=expanded assets/scss:assets/css",
+    "sass-prod": "sass --no-source-map --style=compressed assets/scss:assets/css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.70.0"
+  }
+}

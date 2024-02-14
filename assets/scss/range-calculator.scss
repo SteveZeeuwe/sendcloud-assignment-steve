@@ -1,0 +1,100 @@
+#range-calculator {
+    
+}
+
+h2 {
+    text-align: center;
+}
+
+/* CAR IMAGE */
+
+.tesla-s-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.base {
+
+}
+
+.wheel {
+
+}
+
+.weel.left {
+
+}
+
+.wheel.right {
+
+}
+
+/* RANGES */
+
+.ranges {
+    display: flex;
+    justify-content: center;
+}
+
+.range-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.range {
+    display: flex;
+    color: var(--main-accent-color, #008DFF);
+}
+
+/* CONTROLS */
+
+.controls {
+    display: flex;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    background: none;
+    border: none;
+}
+
+.up-down {
+    display: flex;
+    flex-direction: column;
+}
+
+/* AC toggler */
+#ac:checked + .ac {
+    background: var(--main-accent-color, #008DFF);
+}
+
+#ac:checked + .ac .ac-on {
+    display: block;
+}
+
+#ac:checked + .ac .ac-off {
+    display: none;
+}
+
+#ac + .ac .ac-on {
+    display: none;
+}
+
+#ac + .ac .ac-off {
+    display: block;
+}
+
+/* WHEELSIZE */
+
+.custom-radio-button-label {
+    padding: 20px;
+    border: 2px solid grey;
+}
+
+.custom-radio-button-input:checked + .custom-radio-button-label {
+    border-color: var(--main-accent-color, #008DFF)
+}
