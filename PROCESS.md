@@ -89,9 +89,17 @@ At this point I'm relatively happy with how the code is structured and how it pe
 
 Next up I wanted to implement the XD design. First the desktop version and then touch up for other screensizes with media queries.
 
-I quickly felt the need for more structured and readable css, so I opted for implementing SCSS. During this I noticed that the filesystem was becoming a bit of a mess so decided to do a small cleanup. The assets folder for project assets, workfiles folder for everything related to source materials and process stuff. I did decide to keep `PROCESS.MD` in the root to make the chance anyone misses it as small as possible.
+I quickly felt the need for more structured and readable css, so I opted for implementing SCSS. During this I noticed that the file/folder structure was becoming a bit of a mess so decided to do a cleanup. An assets folder for project assets, workfiles folder for everything related to source materials and process stuff. I did decide to keep `PROCESS.MD` in the root to make the chance anyone misses it as small as possible.
 
-The filesystem cleanup and some npm fiddling later I had a nice clean folder structure and scss up and running.
+The file/folder structure cleanup and some npm fiddling later I had a nice clean folder structure and scss up and running.
+
+-   First step to more structured and readable css was to split into multiple files. I decided to go for a basic implementation of the 7-1 pattern.
+-   Chose to inline the SVG for easy color-changes via CSS for the hover effect.
+-   I usually try to only use margin-bottom and margin-right for specific spacing as it makes it easier to debug layout issues.
+-   Added wheels. Used %-based absolute positioning within container to make sure wheels stay in place on all resolution.
+-   Added wheel rotation animation. Might make the speed depend on input speed later.
+-   Updated most images to use srcset for responsive image optimization.
+-   Found the font on google webfonts, loading via URL. Seemed way more performant than loading the local files. Also a chance the user already has the font downloaded from a different website.
 
 ## Final notes
 

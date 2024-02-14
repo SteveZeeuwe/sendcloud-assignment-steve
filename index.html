@@ -3,8 +3,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tesla model S landing page</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/range-calculator.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <section id="hero">
@@ -14,7 +16,7 @@
             </div>
             <nav>
                 <ul class="main-menu">
-                    <li><a href="/">Model S</a></li>
+                    <li><a href="/" class="active">Model S</a></li>
                     <li><a href="/modelx">Model X</a></li>
                     <li><a href="/model3">Model 3</a></li>
                     <li><a href="/roadster">Roadster</a></li>
@@ -30,14 +32,21 @@
 
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 
-            <a href="#range-calculator">Go to calculator</a>
+            <a href="#range-calculator" title="Go to calculator">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="19px" viewBox="0 0 28 16.709">
+                    <path d="M27.1,5.146l-10.7,10.7a2.967,2.967,0,0,1-2.416.831,2.976,2.976,0,0,1-2.418-.831L.866,5.146A3.027,3.027,0,0,1,5.144.865L13.981,9.7,22.814.865A3.027,3.027,0,0,1,27.1,5.146Z" transform="translate(0.019 0.02)"/>
+                </svg>
+            </a>
         </section>
 
         <article id="range-calculator">
             <h2>Range per charge</h2>
 
             <div class="tesla-s-wrapper">
-                <img src="assets/img/range-calculator/car-base.png" alt="White Tesla S side profile" class="base">
+                <img srcset="assets/img/range-calculator/car-base.png 700w, assets/img/range-calculator/car-base@2x.png 1320w" sizes="(max-width: 768px) 700px, 1400px" src="assets/img/range-calculator/car-base@2x.png" alt="White Tesla S side profile" class="base">
+
+                <img srcset="assets/img/range-calculator/car-wheel.png 67w, assets/img/range-calculator/car-wheel@2x.png 133w" sizes="(max-width: 768px) 67px, 133px" alt="" class="wheel left">
+                <img srcset="assets/img/range-calculator/car-wheel.png 67w, assets/img/range-calculator/car-wheel@2x.png 133w" sizes="(max-width: 768px) 67px, 133px" alt="" class="wheel right">
             </div>
 
             <div class="ranges">

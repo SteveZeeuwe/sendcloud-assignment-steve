@@ -3,7 +3,11 @@
 }
 
 h2 {
+    margin-top: 0;
     text-align: center;
+    font-size: 3.8rem;
+    line-height: 4.7rem;
+    font-weight: normal;
 }
 
 /* CAR IMAGE */
@@ -11,23 +15,37 @@ h2 {
 .tesla-s-wrapper {
     display: flex;
     justify-content: center;
+    position: relative;
+
+    .base {
+        width: 100%;
+    }
+    
+    .wheel {
+        position: absolute;
+        width: 9.5%;
+        top: 51%;
+        animation: rotateWheels 400ms steps(6) infinite;
+
+        &.left {
+            left: 24.8%;  
+        }
+
+        &.right {
+            right: 26.5%;
+        }
+    }
 }
 
-.base {
-
-}
-
-.wheel {
-
-}
-
-.weel.left {
-
-}
-
-.wheel.right {
-
-}
+@keyframes rotateWheels {
+    from {
+        transform: rotate(0deg);
+    }
+  
+    to {
+        transform: rotate(360deg);
+    }
+  }
 
 /* RANGES */
 

@@ -1,0 +1,20 @@
+html {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: var(--text);
+}
+
+h1 {
+    max-width: 810px;
+    margin-bottom: 40px;
+    font-size: 6.4rem;
+    line-height: 6.4rem;
+    font-weight: 300;
+}
+
+p {
+    max-width: 548px;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+}
