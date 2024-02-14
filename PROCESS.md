@@ -79,10 +79,17 @@ At this point I'm not that happy with the code structure yet for various reasons
 
 ## Step six; the range-calculator - class-based
 
+While turning the range-calculator into a class I also tried going for pure functions. This usually makes it easier for me to see the flow of my code and gives me some handholds on how to structure the code. I did not go for a 100% implementation time-wise, I might look into it more later.
+
+I also improved some of the checks to make the code more defensive, altho it's quite difficult to know how far to go with this in a hypothetical project.
+
+At this point I'm relatively happy with how the code is structured and how it performs. I tried to set it up quite dynamically; in such a way that it's easy to add/change inputs, car types and datasets. Of course the code is still very much coupled to a specific HTML implementation. I did consider building the `.ranges` and `.controls` with javascript. That would have the benefit of not needing to update the html manually as the constructor parameters change, but thought that went a bit far for this assignment.
+
 ## Final notes
 
+-   The most difficult part of the assignment was to try and be as transparent as possible during the process, while also not overloading you guys with a lot of useless information. This comment will bite me in the ass if it turns out my implementation is terrible, but so be it!
 -   Normally I use GIT differently. I make heavy use of feature branches and only merge into main if the code has been tested and approved. This allows me to revert to any commit on main and be sure I will have a working application. As in this project GIT's main purpose was just to show chronological changes I opted for a more speedy workflow where I also push flawed versions of the project.
 
 ## Learnings
 
--
+-   I was very eager to start the assignment, and looking at my planning I thought it would be easy to deliver on Monday. Normally I try to stick to the principle of 'undersell and overdeliver', but somehow in this case I totally did not do that which resulted in me updating the planning. Of course I'm still well within the 1-2 weeks that Andrei proposed, but my initial communication should have been better.
