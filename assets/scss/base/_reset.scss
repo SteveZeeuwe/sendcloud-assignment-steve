@@ -4,6 +4,12 @@
 
 html {
     font-size: 62.5%; /* Makes 1rem = 10px, if default font-size was 16px. */
+    scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 body {

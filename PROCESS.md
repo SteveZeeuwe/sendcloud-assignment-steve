@@ -85,13 +85,13 @@ I also improved some of the checks to make the code more defensive, altho it's q
 
 At this point I'm relatively happy with how the code is structured and how it performs. I tried to set it up quite dynamically; in such a way that it's easy to add/change inputs, car types and datasets. Of course the code is still very much coupled to a specific HTML implementation. I did consider building the `.ranges` and `.controls` with javascript. That would have the benefit of not needing to update the html manually as the constructor parameters change, but thought that went a bit far for this assignment.
 
-## Step seven; implement XD design.
+## Step seven; implement XD design. (~1.5 hour)
 
 Next up I wanted to implement the XD design. First the desktop version and then touch up for other screensizes with media queries.
 
 I quickly felt the need for more structured and readable css, so I opted for implementing SCSS. During this I noticed that the file/folder structure was becoming a bit of a mess so decided to do a cleanup. An assets folder for project assets, workfiles folder for everything related to source materials and process stuff. I did decide to keep `PROCESS.MD` in the root to make the chance anyone misses it as small as possible.
 
-The file/folder structure cleanup and some npm fiddling later I had a nice clean folder structure and scss up and running.
+The file/folder structure cleanup and some npm fiddling later I had a nice clean folder structure and scss up and running. Time to style this page.
 
 -   First step to more structured and readable css was to split into multiple files. I decided to go for a basic implementation of the 7-1 pattern.
 -   Chose to inline the SVG for easy color-changes via CSS for the hover effect.
@@ -100,11 +100,20 @@ The file/folder structure cleanup and some npm fiddling later I had a nice clean
 -   Added wheel rotation animation. Might make the speed depend on input speed later.
 -   Updated most images to use srcset for responsive image optimization.
 -   Found the font on google webfonts, loading via URL. Seemed way more performant than loading the local files. Also a chance the user already has the font downloaded from a different website.
+-   I am very much used to sticking to a certain grid of values for things like spacing. The different spacing values used in the XD drove me crazy, and here and there I decided to alter them slightly to be a bit more consistent.
+-   The amount of different colors and fonts was also surprising but ultimately I decided to not change those. Definitely a point of feedback for the XD designer tho - do we really need so many different colors / spacing / font-sizes / line-heights? The footer is a good example of a whole bunch of different styles used close to each other. In the end it is up to the (UX)designer of course, but I would definitely feel responsible as a front-end developer to talk about this - in a constructive manner of course.
+
+## Next steps
+
+What I would have done if I had a bit more time;
+
+-   The lists in the footer are most likely suposed to be links, but I did not implement them as such. If I would, I would take note of properly implementing `mailto` & `tel:`.
 
 ## Final notes
 
 -   The most difficult part of the assignment was to try and be as transparent as possible during the process, while also not overloading you guys with a lot of useless information. This comment will bite me in the ass if it turns out my implementation is terrible, but so be it!
--   Normally I use GIT differently. I make heavy use of feature branches and only merge into main if the code has been tested and approved. This allows me to revert to any commit on main and be sure I will have a working application. As in this project GIT's main purpose was just to show chronological changes I opted for a more speedy workflow where I also push flawed versions of the project.
+-   Normally I use GIT differently. I make heavy use of feature branches and only merge into main if the code has been tested and approved. This allows me to revert to any commit on main and be sure I will have a working application. As in this project GIT's main purpose was just to show chronological changes I opted for a more speedy workflow where I also push flawed versions of the project. My commits are also a bit larger than what they normally would be; I'm a fan of commit early and often.
+-   Had to brush up on quite a lot of stuff. Things that are usually taken care of by agreeing on certain best practices within the company, and are only rarerly revisited. Examples; srcset, font loading, animations.
 
 ## Learnings
 

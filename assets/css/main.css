@@ -1,41 +1,46 @@
 :root {
   --main-accent-color: #008DFF;
   --main-accent-color-light: #7FC4FD;
+  --main-accent-color-footer: #2699FB;
   --black: #121212;
   --text: #040C36;
   --white: #ffffff;
 }
 
-h2 {
+#range-calculator {
+  /* CAR IMAGE */
+  /* RANGES */
+  /* CONTROLS */
+  /* AC toggler */
+  /* WHEELSIZE */
+}
+#range-calculator h2 {
   margin-top: 0;
   text-align: center;
   font-size: 3.8rem;
   line-height: 4.7rem;
   font-weight: normal;
 }
-
-/* CAR IMAGE */
-.tesla-s-wrapper {
+#range-calculator .tesla-s-wrapper {
   display: flex;
   justify-content: center;
   position: relative;
 }
-.tesla-s-wrapper .base {
+#range-calculator .tesla-s-wrapper .base {
   width: 100%;
 }
-.tesla-s-wrapper .wheel {
+#range-calculator .tesla-s-wrapper .wheel {
   position: absolute;
   width: 9.5%;
   top: 51%;
   animation: rotateWheels 400ms steps(6) infinite;
 }
-.tesla-s-wrapper .wheel.left {
+#range-calculator .tesla-s-wrapper .wheel.left {
   left: 24.8%;
 }
-.tesla-s-wrapper .wheel.right {
+#range-calculator .tesla-s-wrapper .wheel.right {
   right: 26.5%;
 }
-
 @keyframes rotateWheels {
   from {
     transform: rotate(0deg);
@@ -44,71 +49,62 @@ h2 {
     transform: rotate(360deg);
   }
 }
-/* RANGES */
-.ranges {
+#range-calculator .ranges {
   display: flex;
   justify-content: center;
 }
-
-.range-wrapper {
+#range-calculator .range-wrapper {
   display: flex;
   flex-direction: column;
 }
-
-.range {
+#range-calculator .range {
   display: flex;
   color: var(--main-accent-color, #008DFF);
 }
-
-/* CONTROLS */
-.controls {
+#range-calculator .controls {
   display: flex;
 }
-
-.control {
+#range-calculator .control {
   display: flex;
   align-items: center;
 }
-
-input {
+#range-calculator input {
   background: none;
   border: none;
 }
-
-.up-down {
+#range-calculator .up-down {
   display: flex;
   flex-direction: column;
 }
-
-/* AC toggler */
-#ac:checked + .ac {
+#range-calculator #ac:checked + .ac {
   background: var(--main-accent-color, #008DFF);
 }
-
-#ac:checked + .ac .ac-on {
+#range-calculator #ac:checked + .ac .ac-on {
   display: block;
 }
-
-#ac:checked + .ac .ac-off {
+#range-calculator #ac:checked + .ac .ac-off {
   display: none;
 }
-
-#ac + .ac .ac-on {
+#range-calculator #ac + .ac .ac-on {
   display: none;
 }
-
-#ac + .ac .ac-off {
+#range-calculator #ac + .ac .ac-off {
   display: block;
 }
-
-/* WHEELSIZE */
-.custom-radio-button-label {
+#range-calculator .custom-radio-button-label {
   padding: 20px;
   border: 2px solid grey;
 }
-
-.custom-radio-button-input:checked + .custom-radio-button-label {
+#range-calculator .custom-radio-button-input:checked + .custom-radio-button-label {
   border-color: var(--main-accent-color, #008DFF);
+}
+#range-calculator .footnote {
+  margin-bottom: 72px;
+  max-width: 100%;
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  letter-spacing: 1.5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -117,6 +113,12 @@ input {
 
 html {
   font-size: 62.5%; /* Makes 1rem = 10px, if default font-size was 16px. */
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 body {
@@ -155,7 +157,7 @@ p {
 
 footer {
   background: var(--black);
-  color: white;
+  color: var(--white);
 }
 
 #footer-wrapper {
@@ -165,58 +167,72 @@ footer {
   justify-content: space-between;
   gap: 16px 96px;
   flex-wrap: wrap;
+  font-family: arial;
 }
-
 #footer-wrapper ul {
   flex: 1;
   margin: 0;
 }
-
-#footer-wrapper ul li:first-of-type {
-  text-transform: uppercase;
-  margin-bottom: 24px;
+#footer-wrapper ul li {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
 }
-
+#footer-wrapper ul li:first-of-type {
+  margin-bottom: 24px;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+#footer-wrapper li.hightlight {
+  color: var(--main-accent-color-light);
+}
 #footer-wrapper .subscription-cta {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
-
 #footer-wrapper .subscription-cta ul {
   max-width: 260px;
   margin-bottom: 20px;
 }
-
 #footer-wrapper .subscription-cta ul li:first-of-type {
+  font-size: 1.4rem;
+  font-size: 1.6rem;
   text-transform: none;
+  font-weight: bold;
+  font-family: arial;
 }
-
 #footer-wrapper .subscription-cta .subscribe {
   display: flex;
 }
-
 #footer-wrapper .subscription-cta .subscribe input {
   padding: 12px 20px;
   margin-right: 20px;
+  background: var(--black);
   color: white;
   border: 1px solid var(--main-accent-color-light);
   border-radius: 4px;
 }
-
 #footer-wrapper .subscription-cta .subscribe input::placeholder {
   color: white;
 }
-
 #footer-wrapper .subscription-cta .subscribe button {
-  padding: 13px 30px;
-  color: var(--main-accent-color);
+  font-size: 1rem;
+  line-height: 1.2rem;
   border-radius: 4px;
   border: none;
+  padding: 13px 30px;
+  color: var(--main-accent-color-footer);
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.2s;
 }
-
-#footer-wrapper li.hightlight {
-  color: var(--main-accent-color-light);
+#footer-wrapper .subscription-cta .subscribe button:hover {
+  color: var(--white);
+  background: var(--main-accent-color-footer);
+  cursor: pointer;
 }
 
 section {
