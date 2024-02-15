@@ -85,7 +85,7 @@ I also improved some of the checks to make the code more defensive, altho it's q
 
 At this point I'm relatively happy with how the code is structured and how it performs. I tried to set it up quite dynamically; in such a way that it's easy to add/change inputs, car types and datasets. Of course the code is still very much coupled to a specific HTML implementation. I did consider building the `.ranges` and `.controls` with javascript. That would have the benefit of not needing to update the html manually as the constructor parameters change, but thought that went a bit far for this assignment.
 
-## Step seven; implement XD design. (~2.5 hour)
+## Step seven; implement XD design. (~2.5 hours)
 
 Next up I wanted to implement the XD design. First the desktop version and then touch up for other screen sizes with media queries.
 
@@ -104,7 +104,7 @@ The file/folder structure cleanup and some npm fiddling later I had a nice clean
 -   The amount of different colors and fonts was also surprising but ultimately I decided to not change those. Definitely a point of feedback for the XD designer tho - do we really need so many different colors / spacing / font-sizes / line-heights? The footer is a good example of a whole bunch of different styles used close to each other. In the end it is up to the (UX)designer of course, but I would definitely feel responsible as a front-end developer to talk about this - in a constructive manner of course.
 -   Implementing the html/css for the controls was a tedious job.
 
-## Step eight; responsive touch-up.
+## Step eight; responsive touch-up. (~1.5 hours)
 
 The XD design is implemented for 99%. Some details are a bit off, but that's for later if there is time left. Now I want to go to the browser, start resizing, and improve things with media queries.
 
@@ -113,7 +113,7 @@ Generally speaking there are two ways to implement media queries; either 'inline
 -   The design was desktop, so I implemented the desktop version first. I don't want to rewrite a lot, so I'm opting to not go for 'mobile-first'.
 -   Usually I use relative line-heights like for example `line-height: 1.2;`. Then all I have to do for different screensizes is altering the font-size; handy. Earlier I just took all values from the XD, I might update the line-heights to relative values if I have time left.
 
-## Step nine; ticking off the requirements.
+## Step nine; ticking off the requirements. (~5 hours)
 
 -   At this point I realize I missed something in the calculator; The temperature should affect how the air conditioner/heating system component is displayed. This introduces something new and my solution does not yet cater for it; intended side-effects on input B when input A has changed.
 
@@ -144,31 +144,34 @@ Generally speaking there are two ways to implement media queries; either 'inline
     -   Some grammar stuff. Went through all of them and fixed where needed.
     -   When quickly using the number inputs on a touch-device might trigger double-tap which makes the user zoom in. This can be resolved by `preventDefault` on certain events on the specific elements. I put it on the next steps list as I don't have time anymore to fix it.
 
+That's it. Time's up! I will write a little bit more about what I would do if I had more time, and also some final thoughts.
+
 ## Next steps
 
 What I would have done if I had a bit more time;
 
--   The lists in the footer are most likely suposed to be links, but I did not implement them as such. If I would, I would take note of properly implementing `mailto` & `tel:`.
--   Turn line-heights into relative values.
--   The number controls could be a bit smaller on mobile. Perhaps I could even leave the AC button next to the temperature input, would make it a lot tidier.
--   Surely there is superfluous styling that slipped through while building this project. Another passthrough to look for this specifically could clean up the code.
+-   There are a few known smaller issues that I did not get around to finishing. Some small stuff like alt / title attributes, more complete and advanced scrsets, the AC button should have some text in it, the number controls could be a bit smaller on mobile. I am aware of these finishing touches, but I simply had to make a cut due to time.
+-   Now that I have implemented Parcel I have a local webserver running after all.. so I could have implemented fetch requests with proper error handling and such.
 -   Tie the speed of wheel rotation to the vehicle speed.
 -   Tie the size of the wheel images to the chosen wheel size.
+-   The lists in the footer are most likely suposed to be links, but I did not implement them as such. If I would, I would take note of properly implementing `mailto` & `tel:`.
+-   Turn line-heights into relative values.
+-   Surely there is superfluous styling that slipped through while building this project. Another passthrough to look for this specifically could clean up the code.
 -   Automated tests. Unit tests for the RangeCalculator and maybe a nice little Cypress end-to-end test as I am in love with Cypress.
--   As mentioned before I wanted to see if transforming the data into a layered object would work and what the performance difference would be. As I am fairly sure the difference would be negligible,
+-   As mentioned before I wanted to see if transforming the data into a layered object would work and what the performance difference would be. As I am fairly sure the difference would be negligible, I left this for later as a nice-to-have.
 -   Fix users accidentally zooming in while quickly using number input.
 
-## Final notes
+## Final thoughts
 
 -   The most difficult part of the assignment was to try and be as transparent as possible during the process, while also not overloading you guys with a lot of useless information. This comment will bite me in the ass if it turns out my implementation is terrible, but so be it!
+-   Another difficult thing was how hypothetical the assignment was. It made it difficult to know when enough was enough. How defensive should the code be. How dynamic should the code be. How easily extensible should it be. I tried explaining how far I went and why in this document.
 -   Normally I use GIT differently. I make heavy use of feature branches and only merge into main if the code has been tested and approved. This allows me to revert to any commit on main and be sure I will have a working application.
 
     As in this project GIT's main purpose was just to show chronological changes I opted for a more speedy workflow where I also push flawed versions of the project. My commits are also a bit larger than what they normally would be; I'm a fan of commit early and often.
 
     I also wish I had been a bit more consistent with my commit messages. If there are rules for commit messages I am always very strict with them, but I did not set rules for myself in the beginning of the project.
 
--   I Had to brush up on quite a lot of stuff. Things that are usually taken care of by agreeing on certain best practices within the company, and are only rarely revisited. Examples; srcset, font loading, animations, certain mixins, a grid.
-
-## Learnings
-
+-   I had to brush up on quite a lot of stuff. Things that are usually taken care of by agreeing on certain best practices within the company, and are only rarely revisited. Examples; srcset, font loading, animations, certain mixins, a grid.
 -   I was very eager to start the assignment, and looking at my planning I thought it would be easy to deliver on Monday. Normally I try to stick to the principle of 'undersell and overdeliver', but somehow in this case I totally did not do that which resulted in me updating the planning. Of course I'm still well within the 1-2 weeks that Andrei proposed.
+-   Browserstack sucks. They used to have a very generous free tier that would actually allow you to use their product for a proper test run, but no more. I will no longer recommend Browserstack.
+-   IE11 (debugging) sucks. At my previous job I had set up a good transpiler and some general best practices which made sure IE11 was supported well enough for our needs. This means I hadn't really touched IE11 in about 3-4 years. It was not a nice reunion, but hey.. part of the job.
