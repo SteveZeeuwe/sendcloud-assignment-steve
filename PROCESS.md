@@ -104,6 +104,14 @@ The file/folder structure cleanup and some npm fiddling later I had a nice clean
 -   The amount of different colors and fonts was also surprising but ultimately I decided to not change those. Definitely a point of feedback for the XD designer tho - do we really need so many different colors / spacing / font-sizes / line-heights? The footer is a good example of a whole bunch of different styles used close to each other. In the end it is up to the (UX)designer of course, but I would definitely feel responsible as a front-end developer to talk about this - in a constructive manner of course.
 -   Implementing the html/css for the controls was a tedious job.
 
+## Step eight; responsive touch-up.
+
+The XD design is implemented for 99%. Some details are a bit off, but that's for later if there is time left. Now I want to go to the browser, start resizing, and improve things with media queries.
+
+Generally speaking there are two ways to implement media queries; either 'inline' inside existing selectors, or create separate larger mediaqueries in which you handle all of the needed styling. For this project I decided to do it 'inline' as I expect there to not be that much anyway. I will create a small mixin to make things easier and more consistent tho.
+
+-   The design was desktop, so I implemented the desktop version first. I don't want to rewrite a lot, so I'm opting to not go for 'mobile-first'.
+
 ## Next steps
 
 What I would have done if I had a bit more time;

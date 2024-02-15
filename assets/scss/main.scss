@@ -1,5 +1,6 @@
-@import 'abstracts/variables.scss';
-@import 'components/range-calculator.scss';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'components/range-calculator';
 @import 'base/reset';
 @import 'base/typography';
 @import 'layout/footer';

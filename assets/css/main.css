@@ -1,3 +1,6 @@
+/*
+* Colors
+*/
 :root {
   --main-accent-color: #008DFF;
   --main-accent-color-light: #7FC4FD;
@@ -10,6 +13,9 @@
   --dark-grey: #707070;
 }
 
+/* Variables for breakpoints */
+/* Map for breakpoints */
+/* Mixin for responsive styles */
 #range-calculator {
   /* CAR IMAGE */
   /* RANGES */
@@ -83,15 +89,32 @@
 #range-calculator .controls {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 66px;
 }
 #range-calculator .controls .control-wrapper {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
-#range-calculator .controls .control-wrapper.border-right {
+#range-calculator .controls .control-wrapper:not(:last-of-type) {
   border-right: 1px solid var(--grey);
   padding-right: 42px;
+  margin-right: 42px;
+}
+@media (max-width: 1400px) {
+  #range-calculator .controls .control-wrapper:not(:last-of-type) {
+    margin-right: 0;
+    padding: 0 60px 40px;
+    border-right: 0;
+    border-bottom: 1px solid var(--grey);
+  }
+}
+@media (max-width: 1400px) {
+  #range-calculator .controls .control-wrapper {
+    align-items: center;
+    margin-bottom: 40px;
+  }
 }
 #range-calculator .controls .control-wrapper .control-label {
   margin-bottom: 24px;
@@ -101,8 +124,28 @@
   letter-spacing: 2px;
   color: var(--dark-grey);
 }
+@media (max-width: 620px) {
+  #range-calculator .controls .control-wrapper .control-label {
+    text-align: center;
+  }
+}
 #range-calculator .controls .control-wrapper .temperature-wrapper {
   display: flex;
+}
+@media (max-width: 620px) {
+  #range-calculator .controls .control-wrapper .temperature-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+#range-calculator .controls .control-wrapper .temperature-wrapper #temperature-control {
+  margin-right: 40px;
+}
+@media (max-width: 620px) {
+  #range-calculator .controls .control-wrapper .temperature-wrapper #temperature-control {
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
 }
 #range-calculator .controls .box {
   height: 80px;
@@ -171,6 +214,15 @@
   flex-direction: column;
   margin-top: -9px;
 }
+#range-calculator .controls .control#wheelsize {
+  display: flex;
+}
+@media (max-width: 620px) {
+  #range-calculator .controls .control#wheelsize {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 #range-calculator .controls .control#wheelsize .custom-radio-button-label {
   display: flex;
   align-items: center;
@@ -183,6 +235,11 @@
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen {
   margin-right: 48px;
+}
+@media (max-width: 620px) {
+  #range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen {
+    margin: 0 0 20px 0;
+  }
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen img {
   width: 54px;
@@ -197,9 +254,6 @@
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-input:checked + .custom-radio-button-label {
   border-color: var(--main-accent-color, #008DFF);
-}
-#range-calculator #temperature-control {
-  margin-right: 40px;
 }
 #range-calculator #ac-control {
   margin-top: -12px;
