@@ -5,26 +5,26 @@ $desktop: 1400px;
 
 /* Map for breakpoints */
 $breakpoints: (
-  "mobile": $mobile-landscape,
-  "tablet": $tablet,
-  "desktop": $desktop,
+	"mobile": $mobile-landscape,
+	"tablet": $tablet,
+	"desktop": $desktop,
 );
 
 /* Mixin for responsive styles */
 @mixin responsive($size) {
-  $query: null;
+	$query: null;
 
-  @if map-has-key($breakpoints, $size) {
-    $query: map-get($breakpoints, $size);
-  } @else {
-    $query: $size;
-  }
+	@if map-has-key($breakpoints, $size) {
+		$query: map-get($breakpoints, $size);
+	} @else {
+		$query: $size;
+	}
 
-  @if $query {
-    @media (max-width: #{$query}) {
-      @content;
-    }
-  } @else {
-    @error "No valid breakpoint or custom value provided for responsive mixin.";
-  }
+	@if $query {
+		@media (max-width: #{$query}) {
+			@content;
+		}
+	} @else {
+		@error "No valid breakpoint or custom value provided for responsive mixin.";
+	}
 }

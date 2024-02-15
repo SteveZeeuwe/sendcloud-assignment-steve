@@ -113,6 +113,26 @@ Generally speaking there are two ways to implement media queries; either 'inline
 -   The design was desktop, so I implemented the desktop version first. I don't want to rewrite a lot, so I'm opting to not go for 'mobile-first'.
 -   Usually I use relative line-heights like for example `line-height: 1.2;`. Then all I have to do for different screensizes is altering the font-size; handy. Earlier I just took all values from the XD, I might update the line-heights to relative values if I have time left.
 
+## Step nine; ticking off the requirements.
+
+-   At this point I realize I missed something in the calculator; The temperature should affect how the air conditioner/heating system component is displayed. This introduces something new and my solution does not yet cater for it; intended side-effects on input B when input A has changed.
+
+    I now need to make a decision; will I implement this in a dynamic and simple-to-configure way, or will I more or less 'hardcode' it? Time-wise I am kind of running out. It is Thursday afternoon and I want to deliver tonight. I decide to take 15 minutes to see whether I can update the class so it allows for these kind of side effects.
+
+    I managed to implement something that works and is quite flexible, but at the same time feels a bit barbaric. The inputconfiguration that is provided to the constructor now has the option to add `sideEffectEvents`. These side effect events exist of a `listenFor` (string) property and a `sideEffectHandler` (function) property.
+
+    Using these two properties the `setSideEffectEventListeners()` function sets events listeners that listen to the `listenFor` event and then executes `sideEffectHandler()`.
+
+    After an input value has changed we call `updateBatteryRanges()` and then fire a custom event. It is these custom events that the sideEffectHandler should be listening for.
+
+    All in all it works using simple javascript events and it's quite easy to change the behavior via the input configuration in the constructor.
+
+-   To not have to manually fiddle around with browser compatibility too much I added postcss (using browserslist) to my dev/build commands.
+-   Testing in IE11 has become increasingly difficult over time. I do not want to run a local webserver to allow an online tool to access my localhost, so instead I will test IE11 at the end when I upload the project to my personal website.
+-   Disabling Javascript only has functional limitations; the design remains exactly the same and most inputs even remain interactable. To make it extra clear for the user I have added a notification bar at the bottom of the screen to indicate that they need javascript in order to use the tool.
+-   I ran Prettier to format all files.
+-   I put my dedicated Q&A team (girlfriend) to work to test the website. For transparency I will share all her findings and what I did with them here;
+
 ## Next steps
 
 What I would have done if I had a bit more time;
@@ -120,13 +140,23 @@ What I would have done if I had a bit more time;
 -   The lists in the footer are most likely suposed to be links, but I did not implement them as such. If I would, I would take note of properly implementing `mailto` & `tel:`.
 -   Turn line-heights into relative values.
 -   The number controls could be a bit smaller on mobile. Perhaps I could even leave the AC button next to the temperature input, would make it a lot tidier.
+-   Surely there is superfluous styling that slipped through while building this project. Another passthrough to look for this specifically could clean up the code.
+-   Tie the speed of wheel rotation to the vehicle speed.
+-   Tie the size of the wheel images to the chosen wheel size.
+-   Automated tests. Unit tests for the RangeCalculator and maybe a nice little Cypress end-to-end test as I am in love with Cypress.
+-   Add a transpiler for the JS to improve compatibility and reduce filesize.
 
 ## Final notes
 
 -   The most difficult part of the assignment was to try and be as transparent as possible during the process, while also not overloading you guys with a lot of useless information. This comment will bite me in the ass if it turns out my implementation is terrible, but so be it!
--   Normally I use GIT differently. I make heavy use of feature branches and only merge into main if the code has been tested and approved. This allows me to revert to any commit on main and be sure I will have a working application. As in this project GIT's main purpose was just to show chronological changes I opted for a more speedy workflow where I also push flawed versions of the project. My commits are also a bit larger than what they normally would be; I'm a fan of commit early and often.
--   Had to brush up on quite a lot of stuff. Things that are usually taken care of by agreeing on certain best practices within the company, and are only rarerly revisited. Examples; srcset, font loading, animations.
+-   Normally I use GIT differently. I make heavy use of feature branches and only merge into main if the code has been tested and approved. This allows me to revert to any commit on main and be sure I will have a working application.
+
+    As in this project GIT's main purpose was just to show chronological changes I opted for a more speedy workflow where I also push flawed versions of the project. My commits are also a bit larger than what they normally would be; I'm a fan of commit early and often.
+
+    I also wish I had been a bit more consistent on my commit messages. If there are rules for commit messages I am always very strict with them, but I did not set rules for myself in the beginning of the project.
+
+-   I Had to brush up on quite a lot of stuff. Things that are usually taken care of by agreeing on certain best practices within the company, and are only rarerly revisited. Examples; srcset, font loading, animations, certain mixins, a grid.
 
 ## Learnings
 
--   I was very eager to start the assignment, and looking at my planning I thought it would be easy to deliver on Monday. Normally I try to stick to the principle of 'undersell and overdeliver', but somehow in this case I totally did not do that which resulted in me updating the planning. Of course I'm still well within the 1-2 weeks that Andrei proposed, but my initial communication should have been better.
+-   I was very eager to start the assignment, and looking at my planning I thought it would be easy to deliver on Monday. Normally I try to stick to the principle of 'undersell and overdeliver', but somehow in this case I totally did not do that which resulted in me updating the planning. Of course I'm still well within the 1-2 weeks that Andrei proposed.

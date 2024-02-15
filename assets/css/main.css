@@ -2,14 +2,14 @@
 * Colors
 */
 :root {
-  --main-accent-color: #008DFF;
-  --main-accent-color-light: #7FC4FD;
-  --main-accent-color-footer: #2699FB;
+  --main-accent-color: #008dff;
+  --main-accent-color-light: #7fc4fd;
+  --main-accent-color-footer: #2699fb;
   --black: #121212;
-  --text: #040C36;
+  --text: #040c36;
   --white: #ffffff;
-  --light-grey: #F0F2F7;
-  --grey: #B9BED1;
+  --light-grey: #f0f2f7;
+  --grey: #b9bed1;
   --dark-grey: #707070;
 }
 
@@ -18,9 +18,6 @@
 /* Mixin for responsive styles */
 #range-calculator {
   padding-top: 30px;
-  /* CAR IMAGE */
-  /* RANGES */
-  /* CONTROLS */
 }
 #range-calculator h2 {
   margin-top: 0;
@@ -73,30 +70,30 @@
     margin-bottom: 40px;
   }
 }
-#range-calculator .range-wrapper {
+#range-calculator #ranges .range-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#range-calculator .range-wrapper img {
+#range-calculator #ranges .range-wrapper img {
   margin-bottom: 20px;
   max-height: 24px;
 }
-#range-calculator .range-wrapper .range {
+#range-calculator #ranges .range-wrapper .range {
   display: flex;
-  color: var(--main-accent-color, #008DFF);
+  color: var(--main-accent-color, #008dff);
 }
-#range-calculator .range-wrapper .range .value {
+#range-calculator #ranges .range-wrapper .range .value {
   font-size: 4.6rem;
   line-height: 1;
   margin-right: 4px;
 }
 @media (max-width: 568px) {
-  #range-calculator .range-wrapper .range .value {
+  #range-calculator #ranges .range-wrapper .range .value {
     font-size: 2.6rem;
   }
 }
-#range-calculator .range-wrapper .range .unit {
+#range-calculator #ranges .range-wrapper .range .unit {
   font-size: 2rem;
   line-height: 2.4rem;
   font-weight: 300;
@@ -125,6 +122,11 @@
     border-right: 0;
     border-bottom: 1px solid var(--grey);
     margin-bottom: 40px;
+  }
+}
+@media (max-width: 1400px) {
+  #range-calculator .controls .control-wrapper:not(:last-of-type) {
+    padding: 0 30px 40px;
   }
 }
 @media (max-width: 1400px) {
@@ -224,20 +226,6 @@
 #range-calculator .controls .control.number .up-down button:nth-of-type(2) img {
   transform: rotate(180deg);
 }
-#range-calculator .controls .control.number .up-down button:hover {
-  animation-duration: 0.75s;
-  animation-name: hvr-icon-up;
-}
-@keyframes hvr-icon-up {
-  0%, 50%, 100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  25%, 75% {
-    -webkit-transform: translateY(-6px);
-    transform: translateY(-6px);
-  }
-}
 #range-calculator .controls .control.number .up-down button img {
   width: 25px;
 }
@@ -263,11 +251,11 @@
 }
 @media (max-width: 620px) {
   #range-calculator .controls .control#wheelsize .custom-radio-button-label {
-    min-width: 140px;
+    min-width: 136px;
   }
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-label:hover {
-  border-color: var(--main-accent-color, #008DFF);
+  border-color: var(--main-accent-color, #008dff);
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen {
   margin-right: 48px;
@@ -299,7 +287,7 @@
   letter-spacing: 2px;
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-input:checked + .custom-radio-button-label {
-  border-color: var(--main-accent-color, #008DFF);
+  border-color: var(--main-accent-color, #008dff);
 }
 #range-calculator #ac-control {
   margin-top: -12px;
@@ -311,7 +299,7 @@
   display: block;
 }
 #range-calculator #ac-control #ac:checked + .ac {
-  background: var(--main-accent-color, #008DFF);
+  background: var(--main-accent-color, #008dff);
 }
 #range-calculator #ac-control #ac:checked + .ac .ac-on {
   display: block;
@@ -337,6 +325,12 @@
   line-height: 2.2rem;
   letter-spacing: 1.5px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+#hotbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 * {
@@ -528,7 +522,8 @@ section {
   text-align: center;
 }
 
-section, header {
+section,
+header {
   display: flex;
   flex-direction: column;
   width: 100%;

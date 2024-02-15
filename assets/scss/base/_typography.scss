@@ -1,29 +1,29 @@
 body {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: var(--text);
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	color: var(--text);
 }
 
 input {
-    font-family: "Montserrat", sans-serif;
+	font-family: "Montserrat", sans-serif;
 }
 
 h1 {
-    max-width: 810px;
-    margin: 0 0 40px;
-    font-size: 6.4rem;
-    line-height: 1;
-    font-weight: 300;
+	max-width: 810px;
+	margin: 0 0 40px;
+	font-size: 6.4rem;
+	line-height: 1;
+	font-weight: 300;
 
-    @include responsive('mobile') {
-        font-size: 4.4rem;
-        line-height: 1.2;
-    }
+	@include responsive("mobile") {
+		font-size: 4.4rem;
+		line-height: 1.2;
+	}
 }
 
 p {
-    max-width: 548px;
-    font-size: 1.6rem;
-    line-height: 2.2rem;
+	max-width: 548px;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
 }

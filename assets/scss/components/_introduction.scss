@@ -1,29 +1,29 @@
 #introduction {
-    margin-bottom: 30px;
-    padding-top: 95px;
+	margin-bottom: 30px;
+	padding-top: 95px;
 
-    p {
-        margin: 0 0 40px;
-    }
+	p {
+		margin: 0 0 40px;
+	}
 
-    a {
-        display: flex;
-        width: 74px;
-        height: 74px;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid var(--text);
-        border-radius: 50%;
-        transition: 0.2s;
+	a {
+		display: flex;
+		width: 74px;
+		height: 74px;
+		align-items: center;
+		justify-content: center;
+		border: 2px solid var(--text);
+		border-radius: 50%;
+		transition: 0.2s;
 
-        &:hover {
-            transform: scale(1.1);
-            background: var(--main-accent-color);
-            border-color: var(--main-accent-color);
+		&:hover {
+			transform: scale(1.1);
+			background: var(--main-accent-color);
+			border-color: var(--main-accent-color);
 
-            svg {
-                fill: white;
-            }
-        }
-    }
+			svg {
+				fill: white;
+			}
+		}
+	}
 }
