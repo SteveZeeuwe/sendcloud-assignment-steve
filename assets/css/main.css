@@ -5,14 +5,15 @@
   --black: #121212;
   --text: #040C36;
   --white: #ffffff;
+  --light-grey: #F0F2F7;
+  --grey: #B9BED1;
+  --dark-grey: #707070;
 }
 
 #range-calculator {
   /* CAR IMAGE */
   /* RANGES */
   /* CONTROLS */
-  /* AC toggler */
-  /* WHEELSIZE */
 }
 #range-calculator h2 {
   margin-top: 0;
@@ -49,54 +50,185 @@
     transform: rotate(360deg);
   }
 }
-#range-calculator .ranges {
+#range-calculator #ranges {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  max-width: 660px;
+  margin: 0 auto 64px;
 }
 #range-calculator .range-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-#range-calculator .range {
+#range-calculator .range-wrapper img {
+  margin-bottom: 20px;
+  max-height: 24px;
+}
+#range-calculator .range-wrapper .range {
   display: flex;
   color: var(--main-accent-color, #008DFF);
 }
+#range-calculator .range-wrapper .range .value {
+  font-size: 4.6rem;
+  line-height: 1;
+  margin-right: 4px;
+}
+#range-calculator .range-wrapper .range .unit {
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
 #range-calculator .controls {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 66px;
 }
-#range-calculator .control {
-  display: flex;
-  align-items: center;
-}
-#range-calculator input {
-  background: none;
-  border: none;
-}
-#range-calculator .up-down {
+#range-calculator .controls .control-wrapper {
   display: flex;
   flex-direction: column;
 }
-#range-calculator #ac:checked + .ac {
+#range-calculator .controls .control-wrapper.border-right {
+  border-right: 1px solid var(--grey);
+  padding-right: 42px;
+}
+#range-calculator .controls .control-wrapper .control-label {
+  margin-bottom: 24px;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  letter-spacing: 2px;
+  color: var(--dark-grey);
+}
+#range-calculator .controls .control-wrapper .temperature-wrapper {
+  display: flex;
+}
+#range-calculator .controls .box {
+  height: 80px;
+  width: 233px;
+  background: var(--light-grey);
+  border: 1px solid var(--grey);
+}
+#range-calculator .controls .control {
+  display: flex;
+}
+#range-calculator .controls .control.number {
+  padding: 18px 12px 18px 22px;
+}
+#range-calculator .controls .control.number .value {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+}
+#range-calculator .controls .control.number .value input {
+  width: 72px;
+  padding: 0;
+  margin-right: 4px;
+  font-size: 3.4rem;
+  line-height: 4.2rem;
+  text-align: right;
+  color: var(--text);
+}
+#range-calculator .controls .control.number .value .unit {
+  margin-right: 12px;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+#range-calculator .controls .control.number .value .unit.no-space {
+  font-size: 3.6rem;
+  margin-left: -18px;
+}
+#range-calculator .controls .control.number .up-down {
+  flex: 0 0 40px;
+}
+#range-calculator .controls .control.number .up-down button {
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+#range-calculator .controls .control.number .up-down button:nth-of-type(2) img {
+  transform: rotate(180deg);
+}
+#range-calculator .controls .control.number .up-down button img {
+  width: 25px;
+}
+#range-calculator .controls .control.number .up-down hr {
+  height: 1px;
+  width: 100%;
+  margin: 8px 0;
+  border: 1px solid var(--grey);
+}
+#range-calculator .controls .control input {
+  background: none;
+  border: none;
+}
+#range-calculator .controls .control .up-down {
+  display: flex;
+  flex-direction: column;
+  margin-top: -9px;
+}
+#range-calculator .controls .control#wheelsize .custom-radio-button-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+#range-calculator .controls .control#wheelsize .custom-radio-button-label:hover {
+  border-color: var(--main-accent-color, #008DFF);
+}
+#range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen {
+  margin-right: 48px;
+}
+#range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen img {
+  width: 54px;
+}
+#range-calculator .controls .control#wheelsize .custom-radio-button-label.twentyone img {
+  width: 67;
+}
+#range-calculator .controls .control#wheelsize .custom-radio-button-label span {
+  font-size: 2rem;
+  line-height: 24px;
+  letter-spacing: 2px;
+}
+#range-calculator .controls .control#wheelsize .custom-radio-button-input:checked + .custom-radio-button-label {
+  border-color: var(--main-accent-color, #008DFF);
+}
+#range-calculator #temperature-control {
+  margin-right: 40px;
+}
+#range-calculator #ac-control {
+  margin-top: -12px;
+}
+#range-calculator #ac-control #ac + .ac .ac-on {
+  display: none;
+}
+#range-calculator #ac-control #ac + .ac .ac-off {
+  display: block;
+}
+#range-calculator #ac-control #ac:checked + .ac {
   background: var(--main-accent-color, #008DFF);
 }
-#range-calculator #ac:checked + .ac .ac-on {
+#range-calculator #ac-control #ac:checked + .ac .ac-on {
   display: block;
 }
-#range-calculator #ac:checked + .ac .ac-off {
+#range-calculator #ac-control #ac:checked + .ac .ac-off {
   display: none;
 }
-#range-calculator #ac + .ac .ac-on {
-  display: none;
-}
-#range-calculator #ac + .ac .ac-off {
-  display: block;
-}
-#range-calculator .custom-radio-button-label {
-  padding: 20px;
-  border: 2px solid grey;
-}
-#range-calculator .custom-radio-button-input:checked + .custom-radio-button-label {
-  border-color: var(--main-accent-color, #008DFF);
+#range-calculator #ac-control .ac {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border: 8px solid var(--light-grey);
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px var(--grey);
+  cursor: pointer;
 }
 #range-calculator .footnote {
   margin-bottom: 72px;
@@ -134,16 +266,20 @@ li {
   list-style: none;
 }
 
-html {
+body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   color: var(--text);
 }
 
+input {
+  font-family: "Montserrat", sans-serif;
+}
+
 h1 {
   max-width: 810px;
-  margin-bottom: 40px;
+  margin: 0 0 40px;
   font-size: 6.4rem;
   line-height: 6.4rem;
   font-weight: 300;
@@ -298,6 +434,7 @@ section, header {
 
 #introduction {
   margin-bottom: 60px;
+  padding-top: 95px;
 }
 #introduction p {
   margin: 0 0 40px;

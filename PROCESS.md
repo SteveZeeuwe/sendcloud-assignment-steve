@@ -85,7 +85,7 @@ I also improved some of the checks to make the code more defensive, altho it's q
 
 At this point I'm relatively happy with how the code is structured and how it performs. I tried to set it up quite dynamically; in such a way that it's easy to add/change inputs, car types and datasets. Of course the code is still very much coupled to a specific HTML implementation. I did consider building the `.ranges` and `.controls` with javascript. That would have the benefit of not needing to update the html manually as the constructor parameters change, but thought that went a bit far for this assignment.
 
-## Step seven; implement XD design. (~1.5 hour)
+## Step seven; implement XD design. (~2.5 hour)
 
 Next up I wanted to implement the XD design. First the desktop version and then touch up for other screensizes with media queries.
 
@@ -102,6 +102,7 @@ The file/folder structure cleanup and some npm fiddling later I had a nice clean
 -   Found the font on google webfonts, loading via URL. Seemed way more performant than loading the local files. Also a chance the user already has the font downloaded from a different website.
 -   I am very much used to sticking to a certain grid of values for things like spacing. The different spacing values used in the XD drove me crazy, and here and there I decided to alter them slightly to be a bit more consistent.
 -   The amount of different colors and fonts was also surprising but ultimately I decided to not change those. Definitely a point of feedback for the XD designer tho - do we really need so many different colors / spacing / font-sizes / line-heights? The footer is a good example of a whole bunch of different styles used close to each other. In the end it is up to the (UX)designer of course, but I would definitely feel responsible as a front-end developer to talk about this - in a constructive manner of course.
+-   Implementing the html/css for the controls was a tedious job.
 
 ## Next steps
 

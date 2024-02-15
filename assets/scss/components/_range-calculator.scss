@@ -47,74 +47,242 @@
     
     /* RANGES */
     
-    .ranges {
+    #ranges {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
+        max-width: 660px;
+        margin: 0 auto 64px;
     }
     
     .range-wrapper {
         display: flex;
         flex-direction: column;
-    }
+        align-items: center;
+
+        img {
+            margin-bottom: 20px;
+            max-height: 24px;
+        }
     
-    .range {
-        display: flex;
-        color: var(--main-accent-color, #008DFF);
+        .range {
+            display: flex;
+            color: var(--main-accent-color, #008DFF);
+    
+            .value {
+                font-size: 4.6rem;
+                line-height: 1;
+                margin-right: 4px;
+            }
+    
+            .unit {
+                font-size: 2rem;
+                line-height: 2.4rem;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+        }
     }
     
     /* CONTROLS */
     
     .controls {
         display: flex;
+        justify-content: space-between;
+        margin-bottom: 66px;
+
+        .control-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            &.border-right {
+                border-right: 1px solid var(--grey);
+                padding-right: 42px;
+            }
+
+            .control-label {
+                margin-bottom: 24px;
+                font-weight: 300;
+                font-size: 2rem;
+                line-height: 2.4rem;
+                letter-spacing: 2px;
+                color: var(--dark-grey);
+            }
+
+            .temperature-wrapper {
+                display: flex;
+            }
+        }
+
+        .box {
+            height: 80px;
+            width: 233px;
+            background: var(--light-grey);
+            border: 1px solid var(--grey);
+        }
+    
+        .control {
+            display: flex;
+
+            &.number {
+                padding: 18px 12px 18px 22px;
+
+                .value {
+                    flex: 1;
+                    display: flex;
+                    align-items: baseline;
+
+                    input {
+                        width: 72px;
+                        padding: 0;
+                        margin-right: 4px;
+                        font-size: 3.4rem;
+                        line-height: 4.2rem;
+                        text-align: right;
+                        color: var(--text);
+                    }
+    
+                    .unit {
+                        margin-right: 12px;
+                        font-size: 2rem;
+                        line-height: 2.4rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+    
+                        &.no-space {
+                            font-size: 3.6rem;
+                            margin-left: -18px;
+                        }
+                    }
+                }
+
+                .up-down {
+                    flex: 0 0 40px;
+
+                    button {
+                        padding: 6px;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+    
+                        &:nth-of-type(2) img {
+                            transform: rotate(180deg);
+                        }
+
+                        &:hover {
+
+                        }
+
+                        img {
+                            width: 25px;
+                        }
+                    }
+
+                    hr {
+                        height: 1px;
+                        width: 100%;
+                        margin: 8px 0;
+                        border: 1px solid var(--grey);
+                    }
+                }
+            }
+
+            input {
+                background: none;
+                border: none;
+            }
+            
+            .up-down {
+                display: flex;
+                flex-direction: column;
+                margin-top: -9px;
+            }
+
+            &#wheelsize {
+                .custom-radio-button-label {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    padding: 8px 20px;
+                    cursor: pointer;
+
+                    &:hover {
+                        border-color: var(--main-accent-color, #008DFF);
+                    }
+
+                    &.nineteen {
+                        margin-right: 48px;
+                        
+                        img {
+                            width: 54px;
+                        }
+                    }
+    
+                    &.twentyone {
+                        img {
+                            width: 67;
+                        }
+                    }
+
+                    span {
+                        font-size: 2rem;
+                        line-height: 24px;
+                        letter-spacing: 2px;
+                    }
+                }
+                
+                .custom-radio-button-input:checked + .custom-radio-button-label {
+                    border-color: var(--main-accent-color, #008DFF);
+                }
+            }
+        }
     }
-    
-    .control {
-        display: flex;
-        align-items: center;
+
+    #temperature-control {
+        margin-right: 40px;
     }
+
+    #ac-control {
+        margin-top: -12px;
+
+        #ac {
+            & + .ac {
+                & .ac-on {
+                    display: none;
+                }
     
-    input {
-        background: none;
-        border: none;
-    }
+                & .ac-off {
+                    display: block;
+                }
+            }
     
-    .up-down {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* AC toggler */
-    #ac:checked + .ac {
-        background: var(--main-accent-color, #008DFF);
-    }
-    
-    #ac:checked + .ac .ac-on {
-        display: block;
-    }
-    
-    #ac:checked + .ac .ac-off {
-        display: none;
-    }
-    
-    #ac + .ac .ac-on {
-        display: none;
-    }
-    
-    #ac + .ac .ac-off {
-        display: block;
-    }
-    
-    /* WHEELSIZE */
-    
-    .custom-radio-button-label {
-        padding: 20px;
-        border: 2px solid grey;
-    }
-    
-    .custom-radio-button-input:checked + .custom-radio-button-label {
-        border-color: var(--main-accent-color, #008DFF)
-    }
-    
+            &:checked {
+                & + .ac {
+                    background: var(--main-accent-color, #008DFF);
+        
+                    .ac-on {
+                        display: block;
+                    }
+        
+                    .ac-off {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .ac {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border: 8px solid var(--light-grey);
+            border-radius: 50%;
+            box-shadow: 0px 1px 3px var(--grey);
+            cursor: pointer;
+        }
+    }    
+
     .footnote {
         margin-bottom: 72px;
         max-width: 100%;

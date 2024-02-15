@@ -1,13 +1,17 @@
-html {
+body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     color: var(--text);
 }
 
+input {
+    font-family: "Montserrat", sans-serif;
+}
+
 h1 {
     max-width: 810px;
-    margin-bottom: 40px;
+    margin: 0 0 40px;
     font-size: 6.4rem;
     line-height: 6.4rem;
     font-weight: 300;
