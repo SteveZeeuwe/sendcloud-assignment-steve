@@ -307,40 +307,64 @@
 
 		#ac {
 			& + .ac {
-				& .ac-on {
-					display: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100px;
+				height: 100px;
+				border: 8px solid var(--light-grey);
+				border-radius: 50%;
+				box-shadow: 0px 1px 3px var(--grey);
+				cursor: pointer;
+
+				&.warm {
+					.warm {
+						display: none;
+					}
 				}
 
-				& .ac-off {
-					display: block;
+				&.cold {
+					.cold {
+						display: none;
+					}
 				}
 			}
 
 			&:checked {
 				& + .ac {
-					background: var(--main-accent-color, #008dff);
+					&.warm {
+						background: var(--main-accent-color, #008dff);
 
-					.ac-on {
-						display: block;
+						.ac-off {
+							display: none;
+						}
 					}
 
-					.ac-off {
-						display: none;
+					&.cold {
+						background: #d11a15;
+
+						.ac-off {
+							display: none;
+						}
 					}
 				}
 			}
-		}
 
-		.ac {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 100px;
-			height: 100px;
-			border: 8px solid var(--light-grey);
-			border-radius: 50%;
-			box-shadow: 0px 1px 3px var(--grey);
-			cursor: pointer;
+			&:not(:checked) {
+				& + .ac {
+					&.warm {
+						.ac-on {
+							display: none;
+						}
+					}
+
+					&.cold {
+						.ac-on {
+							display: none;
+						}
+					}
+				}
+			}
 		}
 	}
 

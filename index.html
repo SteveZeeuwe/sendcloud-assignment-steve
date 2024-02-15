@@ -3,7 +3,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Tesla model S landing page</title>
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/scss/main.scss" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -19,11 +19,11 @@
 				</div>
 				<nav>
 					<ul class="main-menu">
-						<li><a href="/" class="active">Model S</a></li>
-						<li><a href="/modelx">Model X</a></li>
-						<li><a href="/model3">Model 3</a></li>
-						<li><a href="/roadster">Roadster</a></li>
-						<li><a href="/energy">Energy</a></li>
+						<li><a href="./" class="active">Model S</a></li>
+						<li><a href="./">Model X</a></li>
+						<li><a href="./">Model 3</a></li>
+						<li><a href="./">Roadster</a></li>
+						<li><a href="./">Energy</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -220,15 +220,25 @@
 
 							<div id="ac-control" class="control">
 								<input type="checkbox" id="ac" hidden />
-								<label for="ac" class="ac">
+								<label for="ac" class="ac cold">
 									<img
 										src="assets/img/range-calculator/icon-fan-gray.svg"
-										class="ac-off"
+										class="ac-off cold"
 										alt="AC off icon"
 									/>
 									<img
 										src="assets/img/range-calculator/icon-fan-white.svg"
-										class="ac-on"
+										class="ac-on cold"
+										alt="AC on icon"
+									/>
+									<img
+										src="assets/img/range-calculator/icon-wave-gray.svg"
+										class="ac-off warm"
+										alt="AC off icon"
+									/>
+									<img
+										src="assets/img/range-calculator/icon-wave-white.svg"
+										class="ac-on warm"
 										alt="AC on icon"
 									/>
 								</label>
@@ -354,7 +364,7 @@
 			<div id="hotbar">JS is disabled</div>
 		</noscript>
 
-		<script src="assets/js/range-calculator.js"></script>
+		<script src="assets/js/index.js" type="module"></script>
 
 		<script>
 			function subscribeToMail(event) {
