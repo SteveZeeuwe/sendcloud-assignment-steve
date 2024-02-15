@@ -17,6 +17,7 @@
 /* Map for breakpoints */
 /* Mixin for responsive styles */
 #range-calculator {
+  padding-top: 30px;
   /* CAR IMAGE */
   /* RANGES */
   /* CONTROLS */
@@ -32,6 +33,11 @@
   display: flex;
   justify-content: center;
   position: relative;
+}
+@media (max-width: 568px) {
+  #range-calculator .tesla-s-wrapper {
+    margin-bottom: 20px;
+  }
 }
 #range-calculator .tesla-s-wrapper .base {
   width: 100%;
@@ -62,6 +68,11 @@
   max-width: 660px;
   margin: 0 auto 64px;
 }
+@media (max-width: 568px) {
+  #range-calculator #ranges {
+    margin-bottom: 40px;
+  }
+}
 #range-calculator .range-wrapper {
   display: flex;
   flex-direction: column;
@@ -79,6 +90,11 @@
   font-size: 4.6rem;
   line-height: 1;
   margin-right: 4px;
+}
+@media (max-width: 568px) {
+  #range-calculator .range-wrapper .range .value {
+    font-size: 2.6rem;
+  }
 }
 #range-calculator .range-wrapper .range .unit {
   font-size: 2rem;
@@ -108,12 +124,12 @@
     padding: 0 60px 40px;
     border-right: 0;
     border-bottom: 1px solid var(--grey);
+    margin-bottom: 40px;
   }
 }
 @media (max-width: 1400px) {
   #range-calculator .controls .control-wrapper {
     align-items: center;
-    margin-bottom: 40px;
   }
 }
 #range-calculator .controls .control-wrapper .control-label {
@@ -124,7 +140,7 @@
   letter-spacing: 2px;
   color: var(--dark-grey);
 }
-@media (max-width: 620px) {
+@media (max-width: 1400px) {
   #range-calculator .controls .control-wrapper .control-label {
     text-align: center;
   }
@@ -148,8 +164,8 @@
   }
 }
 #range-calculator .controls .box {
-  height: 80px;
-  width: 233px;
+  max-height: 81px;
+  min-width: 233px;
   background: var(--light-grey);
   border: 1px solid var(--grey);
 }
@@ -159,10 +175,15 @@
 #range-calculator .controls .control.number {
   padding: 18px 12px 18px 22px;
 }
+@media (max-width: 568px) {
+  #range-calculator .controls .control.number {
+    padding: 14px 12px 14px 18px;
+  }
+}
 #range-calculator .controls .control.number .value {
   flex: 1;
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 #range-calculator .controls .control.number .value input {
   width: 72px;
@@ -174,18 +195,25 @@
   color: var(--text);
 }
 #range-calculator .controls .control.number .value .unit {
-  margin-right: 12px;
   font-size: 2rem;
   line-height: 2.4rem;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-#range-calculator .controls .control.number .value .unit.no-space {
+#range-calculator .controls .control.number .value .unit.km {
+  margin-top: 7px;
+  margin-left: 17px;
+}
+#range-calculator .controls .control.number .value .unit.degrees {
   font-size: 3.6rem;
-  margin-left: -18px;
+  margin-left: -3px;
 }
 #range-calculator .controls .control.number .up-down {
   flex: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -9px;
+  margin-bottom: -9px;
 }
 #range-calculator .controls .control.number .up-down button {
   padding: 6px;
@@ -195,6 +223,20 @@
 }
 #range-calculator .controls .control.number .up-down button:nth-of-type(2) img {
   transform: rotate(180deg);
+}
+#range-calculator .controls .control.number .up-down button:hover {
+  animation-duration: 0.75s;
+  animation-name: hvr-icon-up;
+}
+@keyframes hvr-icon-up {
+  0%, 50%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25%, 75% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
 }
 #range-calculator .controls .control.number .up-down button img {
   width: 25px;
@@ -209,19 +251,8 @@
   background: none;
   border: none;
 }
-#range-calculator .controls .control .up-down {
-  display: flex;
-  flex-direction: column;
-  margin-top: -9px;
-}
 #range-calculator .controls .control#wheelsize {
   display: flex;
-}
-@media (max-width: 620px) {
-  #range-calculator .controls .control#wheelsize {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-label {
   display: flex;
@@ -229,6 +260,11 @@
   justify-content: space-evenly;
   padding: 8px 20px;
   cursor: pointer;
+}
+@media (max-width: 620px) {
+  #range-calculator .controls .control#wheelsize .custom-radio-button-label {
+    min-width: 140px;
+  }
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-label:hover {
   border-color: var(--main-accent-color, #008DFF);
@@ -238,14 +274,24 @@
 }
 @media (max-width: 620px) {
   #range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen {
-    margin: 0 0 20px 0;
+    margin-right: 20px;
   }
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen img {
   width: 54px;
 }
+@media (max-width: 620px) {
+  #range-calculator .controls .control#wheelsize .custom-radio-button-label.nineteen img {
+    width: 27px;
+  }
+}
 #range-calculator .controls .control#wheelsize .custom-radio-button-label.twentyone img {
   width: 67;
+}
+@media (max-width: 620px) {
+  #range-calculator .controls .control#wheelsize .custom-radio-button-label.twentyone img {
+    width: 33.5;
+  }
 }
 #range-calculator .controls .control#wheelsize .custom-radio-button-label span {
   font-size: 2rem;
@@ -300,6 +346,7 @@
 html {
   font-size: 62.5%; /* Makes 1rem = 10px, if default font-size was 16px. */
   scroll-behavior: smooth;
+  min-width: 375px;
 }
 
 img {
@@ -335,8 +382,14 @@ h1 {
   max-width: 810px;
   margin: 0 0 40px;
   font-size: 6.4rem;
-  line-height: 6.4rem;
+  line-height: 1;
   font-weight: 300;
+}
+@media (max-width: 568px) {
+  h1 {
+    font-size: 4.4rem;
+    line-height: 1.2;
+  }
 }
 
 p {
@@ -351,17 +404,32 @@ footer {
 }
 
 #footer-wrapper {
-  padding: 60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 16px 96px;
   flex-wrap: wrap;
+  gap: 16px 96px;
+  padding: 60px;
   font-family: arial;
+}
+@media (max-width: 568px) {
+  #footer-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  #footer-wrapper {
+    padding: 40px;
+    gap: 16px 40px;
+  }
 }
 #footer-wrapper ul {
   flex: 1;
-  margin: 0;
+  margin: 0 0 20px 0;
+  min-width: 140px;
 }
 #footer-wrapper ul li {
   font-size: 1.4rem;
@@ -375,6 +443,12 @@ footer {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
 }
+@media (max-width: 568px) {
+  #footer-wrapper ul li:first-of-type {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+  }
+}
 #footer-wrapper li.hightlight {
   color: var(--main-accent-color-light);
 }
@@ -382,6 +456,11 @@ footer {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 568px) {
+  #footer-wrapper .subscription-cta {
+    align-items: center;
+  }
 }
 #footer-wrapper .subscription-cta ul {
   max-width: 260px;
@@ -394,8 +473,19 @@ footer {
   font-weight: bold;
   font-family: arial;
 }
+@media (max-width: 568px) {
+  #footer-wrapper .subscription-cta ul li:first-of-type {
+    margin-bottom: 8px;
+  }
+}
 #footer-wrapper .subscription-cta .subscribe {
   display: flex;
+}
+@media (max-width: 568px) {
+  #footer-wrapper .subscription-cta .subscribe #emailForm {
+    display: flex;
+    flex-direction: column;
+  }
 }
 #footer-wrapper .subscription-cta .subscribe input {
   padding: 12px 20px;
@@ -407,6 +497,12 @@ footer {
 }
 #footer-wrapper .subscription-cta .subscribe input::placeholder {
   color: white;
+}
+@media (max-width: 568px) {
+  #footer-wrapper .subscription-cta .subscribe input {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
 }
 #footer-wrapper .subscription-cta .subscribe button {
   font-size: 1rem;
@@ -452,6 +548,11 @@ section, header {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media (max-width: 568px) {
+  #hero {
+    height: 440px;
+  }
+}
 #hero .logo-wrapper {
   background-color: var(--black);
   height: 65px;
@@ -466,6 +567,7 @@ section, header {
   gap: 0 80px;
   width: 100%;
   margin: 20px 0 0;
+  padding: 0 20px;
 }
 #hero .main-menu li a {
   display: block;
@@ -487,7 +589,7 @@ section, header {
 }
 
 #introduction {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   padding-top: 95px;
 }
 #introduction p {

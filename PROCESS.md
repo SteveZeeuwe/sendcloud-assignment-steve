@@ -111,12 +111,15 @@ The XD design is implemented for 99%. Some details are a bit off, but that's for
 Generally speaking there are two ways to implement media queries; either 'inline' inside existing selectors, or create separate larger mediaqueries in which you handle all of the needed styling. For this project I decided to do it 'inline' as I expect there to not be that much anyway. I will create a small mixin to make things easier and more consistent tho.
 
 -   The design was desktop, so I implemented the desktop version first. I don't want to rewrite a lot, so I'm opting to not go for 'mobile-first'.
+-   Usually I use relative line-heights like for example `line-height: 1.2;`. Then all I have to do for different screensizes is altering the font-size; handy. Earlier I just took all values from the XD, I might update the line-heights to relative values if I have time left.
 
 ## Next steps
 
 What I would have done if I had a bit more time;
 
 -   The lists in the footer are most likely suposed to be links, but I did not implement them as such. If I would, I would take note of properly implementing `mailto` & `tel:`.
+-   Turn line-heights into relative values.
+-   The number controls could be a bit smaller on mobile. Perhaps I could even leave the AC button next to the temperature input, would make it a lot tidier.
 
 ## Final notes
 
